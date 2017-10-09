@@ -4,11 +4,12 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
+import '../node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
 
 ReactDOM.render(
-	<Provider>
-		<App />
-	</Provider>, 
+		<Provider>
+			<App />
+		</Provider>, 
 document.getElementById('root'));
 
 registerServiceWorker();

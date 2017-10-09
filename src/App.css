@@ -1,9 +1,10 @@
 .App {
-  text-align: center;
+  /*text-align: center;*/
+  background-color: #222222;
 }
 
 .App-header {
-  background-color: #222;
+  background-color: #222222;
   height: 150px;
   padding: 20px;
   color: white;
@@ -11,8 +12,99 @@
 
 .App-title {
   font-size: 1.5em;
+  font-family: 'Lato', sans-serif;
+
 }
 
-.App-intro {
-  font-size: large;
+.App-logo {
+	height: 70px;
+	position: relative;
+	left: 3em;
+	bottom: 0.5em;
 }
+
+.blockchain-info {
+	position: relative;
+	top: 1.5em;
+}
+
+.search-box {
+	position: relative;
+	top: 6em;
+}
+
+@media screen and (max-width: 991px) {
+	.search-box {
+		width: 200px;
+		position: relative;
+		top: 20px;
+	}
+}
+
+.stock-table {
+	background-color: white;
+}
+
+
+
+/*
+	THIS IS HOW YOU MAKE IT SO FOOTER FILLS REST OF PAGE UP
+*/
+/*************************************************************/
+.footer {
+	/*height: 100vh;*/
+	color: white;
+	position: fixed;
+	bottom: 0;
+	background-color: #222222;
+	width: 100%;
+}
+
+
+body {
+	background-color: #222222;
+	/*height: 100vh;*/
+}
+/*************************************************************/
+
+
+.footer .inner {
+	margin: 0 auto;
+	max-width: 1024px;
+	padding: 20px 30px;
+}
+
+.sections {
+	display: block;
+}
+
+
+
+
+.four.columns {
+	width: 33%;
+	float: left;
+}
+
+.footer .spaced {
+	padding: 0 10px;
+}
+
+.eight.columns {
+	width: 66%;
+	float: left;
+}
+
+.footer .links-padding {
+	padding: 0 10px;
+}
+
+
+
+
+
+
+
+
+
+

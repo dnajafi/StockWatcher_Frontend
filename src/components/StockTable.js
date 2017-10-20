@@ -134,9 +134,9 @@ var products = [
     fiftyDayAverage: 158.072,
   }];
 
-const StockTable = () => {
+const StockTable = (props) => {
 	return (
-		<BootstrapTable data={products} striped hover>
+		<BootstrapTable data={props.stocks} striped hover>
       <TableHeaderColumn isKey dataField='ticker'>Symbol</TableHeaderColumn>
       <TableHeaderColumn dataField='name'>Name</TableHeaderColumn>
       <TableHeaderColumn dataField='price'>Price</TableHeaderColumn>

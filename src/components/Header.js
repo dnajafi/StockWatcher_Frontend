@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Col, Row, FormControl, Button, FormGroup, Form } from 'react-bootstrap';
+import { Grid, Col, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import logo from '../logo.png';
 import { updateCurrentNewSymbol, saveCurrentNewSymbol } from '../reducers/stocks';

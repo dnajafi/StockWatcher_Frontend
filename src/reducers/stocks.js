@@ -1,4 +1,4 @@
-import { getStocks, updateStocks, addStock } from '../lib/stocksService';
+import { getStocks, addStock } from '../lib/stocksService';
 
 const initState = {
 	stocks: [],

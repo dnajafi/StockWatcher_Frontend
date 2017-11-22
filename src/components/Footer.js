@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 
 class Footer extends Component {
@@ -20,11 +21,11 @@ class Footer extends Component {
               </div>
               <div className="eight columns" style={{textAlign: "right"}}>
                 <div>
-                  <a className="links-padding" href="#">About</a>
-                  <a className="links-padding" href="#">Contact</a>
-                  <a className="links-padding" href="#">Privacy</a>
-                  <a className="links-padding" href="#">Terms</a>
-                  <a className="links-padding" href="#">Dashboard</a>
+                  <span style={{margin: 6}}><Link to="/">About</Link></span>
+                  <span style={{margin: 6}}><Link to="/">Contact</Link></span>
+                  <span style={{margin: 6}}><Link to="/">Privacy</Link></span>
+                  <span style={{margin: 6}}><Link to="/">Terms</Link></span>
+                  <span style={{margin: 6}}><Link to="/">Dashboard</Link></span>
                 </div>
               </div>
             </div>

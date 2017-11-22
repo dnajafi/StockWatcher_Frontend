@@ -1,10 +1,19 @@
 import React, { Component } from 'react';
-import { Grid, Col, Row, FormControl } from 'react-bootstrap';
+import { Grid, Col, Row, FormControl, Button, FormGroup, Form } from 'react-bootstrap';
+import { connect } from 'react-redux';
 import logo from '../logo.png';
+import { updateCurrentNewSymbol, saveCurrentNewSymbol } from '../reducers/stocks';
 
 class Header extends Component {
 
+  submitSymbol(evt) {
+    evt.preventDefault();
+    this.props.saveCurrentNewSymbol(this.props.currentNewSymbol);
+  }
 
+  handlerInputChange = (evt)=> {
+    this.props.updateCurrentNewSymbol(evt.target.value);
+  }
 
 	render() {
 		return (
@@ -24,16 +33,20 @@ class Header extends Component {
                   Bitcoin: ฿1 = $4606.26 (+3.05%)
                 </h5>
               </div>
-              <div style={{position: "relative", top: 30, left: 245, fontSize: 17}}>
-                <p>Add another stock:</p>
-              </div>
             </Col>
             <Col xs={6} md={4}>
-              <div className="search-box">
-                <FormControl
-                  type="text"
-                  placeholder="Enter Ticker Symbol"
-                />
+              <div  className="search-box">
+                <div style={{float: 'right', with: 100}}>
+                  <form onSubmit={(evt) => this.submitSymbol(evt)}>
+                    <input
+                      style={{color: 'Black'}}
+                      type="text"
+                      onChange={this.handlerInputChange}
+                      placeholder="Enter another symbol"
+                      value={this.props.currentNewSymbol}
+                    />
+                  </form>
+                </div>
               </div>
             </Col>
           </Row>
@@ -43,4 +56,16 @@ class Header extends Component {
 	}
 }
 
-export default Header;
+const mapStateToProps = (state) => ({ currentNewSymbol: state.stocks.newSymbol });
+const mapDispatchToProps = { updateCurrentNewSymbol, saveCurrentNewSymbol };
+
+export default connect(
+  mapStateToProps, 
+  mapDispatchToProps
+)(Header);
+
+
+
+
+
+

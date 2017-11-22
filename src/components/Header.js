@@ -3,6 +3,7 @@ import { Grid, Col, Row, FormControl, Button, FormGroup, Form } from 'react-boot
 import { connect } from 'react-redux';
 import logo from '../logo.png';
 import { updateCurrentNewSymbol, saveCurrentNewSymbol } from '../reducers/stocks';
+import { fetchBTCPrice } from '../reducers/crypto'
 
 class Header extends Component {
 
@@ -13,6 +14,10 @@ class Header extends Component {
 
   handlerInputChange = (evt)=> {
     this.props.updateCurrentNewSymbol(evt.target.value);
+  }
+
+  componentWillMount() {
+    this.props.fetchBTCPrice();
   }
 
 	render() {
@@ -30,7 +35,7 @@ class Header extends Component {
                   Ethereum: $310.00 (-0.96%) ฿0.06700 (-4.30%) 
                 </h5>
                 <h5>
-                  Bitcoin: ฿1 = $4606.26 (+3.05%)
+                  Bitcoin: ฿1 = ${this.props.currentBTCPrice}
                 </h5>
               </div>
             </Col>
@@ -56,8 +61,8 @@ class Header extends Component {
 	}
 }
 
-const mapStateToProps = (state) => ({ currentNewSymbol: state.stocks.newSymbol });
-const mapDispatchToProps = { updateCurrentNewSymbol, saveCurrentNewSymbol };
+const mapStateToProps = (state) => ({ currentNewSymbol: state.stocks.newSymbol, currentBTCPrice: state.crypto.bitcoin_price });
+const mapDispatchToProps = { updateCurrentNewSymbol, saveCurrentNewSymbol, fetchBTCPrice };
 
 export default connect(
   mapStateToProps, 

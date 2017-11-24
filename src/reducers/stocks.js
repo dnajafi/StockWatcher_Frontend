@@ -1,4 +1,4 @@
-import { getStocks, addStock } from '../lib/stocksService';
+import { getStocks, addStock, deleteStock } from '../lib/stocksService';
 
 const initState = {
 	stocks: [],
@@ -19,7 +19,15 @@ export const saveCurrentSymbol = (response) => ({ type: SAVE_CURRENT_SYMBOL, pay
 export const fetchStocks = () => {
 	return (dispatch) => {
 		getStocks()
-			.then(stocks => dispatch(loadStocks(stocks)))
+			.then(stocks => {
+
+				for(let stock in stocks) {
+					console.log(stock);
+				}	
+
+				dispatch(loadStocks(stocks))
+
+			})
 	}
 }
 
@@ -46,6 +54,20 @@ export const updateStocksAndFetch = () => {
 		getStocks()
 			.then(res => {
 				dispatch(loadStocks(res.stocks))
+			})
+	}
+}
+
+export const deleteStockSymbol = (symbol) => {
+	return (dispatch) => {
+		dispatch(updatingStocks('Currently Deleting Stock '+ symbol));
+		deleteStock(symbol)
+			.then(response => {
+				dispatch(updatingStocks(response.data.message));
+				getStocks()
+					.then(res => {
+						dispatch(loadStocks(res.stocks))
+					})
 			})
 	}
 }

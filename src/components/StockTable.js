@@ -1,21 +1,44 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
+import { connect } from 'react-redux';
+import { deleteStockSymbol } from '../reducers/stocks';
 
-const StockTable = (props) => {
+class StockTable extends Component {
 
-	return (
-	     <BootstrapTable data={props.stocks} striped hover>
-                  <TableHeaderColumn isKey dataField='symbol'>Symbol</TableHeaderColumn>
-                  <TableHeaderColumn dataField='close'>Close</TableHeaderColumn>
-                  <TableHeaderColumn dataField='low'>Low</TableHeaderColumn>
-                  <TableHeaderColumn dataField='high'>High</TableHeaderColumn>
-                  <TableHeaderColumn dataField='main_page'>Yahoo Finance Page</TableHeaderColumn>
-            </BootstrapTable>
-	);
+	cellButton(cell, row, enumObject, rowIndex) {
+    return (
+       <button 
+       		style={{backgroundColor: 'red'}}
+          type="button" 
+          onClick={() => 
+          this.props.deleteStockSymbol(row.symbol)}
+       >
+       Delete {row.symbol}
+       </button>
+    )
+	}
+
+	render() {
+		return (
+			<BootstrapTable data={this.props.stocks} striped hover>
+			  <TableHeaderColumn isKey dataField='symbol'>Symbol</TableHeaderColumn>
+			  <TableHeaderColumn dataField='close'>Close</TableHeaderColumn>
+			  <TableHeaderColumn dataField='low'>Low</TableHeaderColumn>
+			  <TableHeaderColumn dataField='high'>High</TableHeaderColumn>
+			  <TableHeaderColumn dataField='main_page'>Yahoo Finance Page</TableHeaderColumn>
+			  <TableHeaderColumn dataField='delete_button' dataFormat={this.cellButton.bind(this)}>Delete</TableHeaderColumn>
+			</BootstrapTable>
+		);
+	}
 }
 
-export default StockTable;
+const mapStateToProps = (state) => ({});
+const mapDispatchToProps = { deleteStockSymbol };
 
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(StockTable);
 
 
 

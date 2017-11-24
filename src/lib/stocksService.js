@@ -28,3 +28,13 @@ export const addStock = (newStockSymbol) => {
 		symbol: newStockSymbol
   })
 }
+
+export const deleteStock = (stockToDelete) => {
+	return axios.delete(baseUrl + '/stock', 
+		{
+			data: {
+				symbol: stockToDelete
+	  	}
+  	}
+	)
+}

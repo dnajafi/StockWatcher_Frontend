@@ -17,6 +17,7 @@ class StockTable extends Component {
        Delete {row.symbol}
        </button>
     )
+
     // return (
     //    <button 
     //    		style={{backgroundColor: 'red'}}
@@ -29,6 +30,12 @@ class StockTable extends Component {
     // )
 	}
 
+	mainPageLink(cell, row, enumObject, rowIndex) {
+		return (
+			<a target="_blank" href={row.main_page}>Yahoo Finance Page</a>
+		);
+	}
+
 	render() {
 		return (
 			<BootstrapTable data={this.props.stocks} striped hover>
@@ -36,7 +43,7 @@ class StockTable extends Component {
 			  <TableHeaderColumn dataField='close'>Close</TableHeaderColumn>
 			  <TableHeaderColumn dataField='low'>Low</TableHeaderColumn>
 			  <TableHeaderColumn dataField='high'>High</TableHeaderColumn>
-			  <TableHeaderColumn dataField='main_page'>Yahoo Finance Page</TableHeaderColumn>
+			  <TableHeaderColumn dataField='main_page' dataFormat={this.mainPageLink.bind(this)}>Yahoo Finance Page</TableHeaderColumn>
 			  <TableHeaderColumn dataField='delete_button' dataFormat={this.cellButton.bind(this)}>Delete</TableHeaderColumn>
 			</BootstrapTable>
 		);

@@ -9,7 +9,8 @@ class Header extends Component {
 
   submitSymbol(evt) {
     evt.preventDefault();
-    this.props.saveCurrentNewSymbol(this.props.currentNewSymbol);
+    alert("Cannot add stocks from app. Please contact admin.");
+    // this.props.saveCurrentNewSymbol(this.props.currentNewSymbol);
   }
 
   handlerInputChange = (evt)=> {

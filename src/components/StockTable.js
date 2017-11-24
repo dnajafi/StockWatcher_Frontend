@@ -6,16 +6,27 @@ import { deleteStockSymbol } from '../reducers/stocks';
 class StockTable extends Component {
 
 	cellButton(cell, row, enumObject, rowIndex) {
-    return (
+
+		return (
        <button 
        		style={{backgroundColor: 'red'}}
           type="button" 
           onClick={() => 
-          this.props.deleteStockSymbol(row.symbol)}
+          alert("Cannot delete from app. Please contact admin.")}
        >
        Delete {row.symbol}
        </button>
     )
+    // return (
+    //    <button 
+    //    		style={{backgroundColor: 'red'}}
+    //       type="button" 
+    //       onClick={() => 
+    //       this.props.deleteStockSymbol(row.symbol)}
+    //    >
+    //    Delete {row.symbol}
+    //    </button>
+    // )
 	}
 
 	render() {

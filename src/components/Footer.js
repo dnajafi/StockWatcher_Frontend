@@ -21,10 +21,10 @@ class Footer extends Component {
               </div>
               <div className="eight columns" style={{textAlign: "right"}}>
                 <div>
-                  <span style={{margin: 6}}><Link to="/">About</Link></span>
-                  <span style={{margin: 6}}><Link to="/">Contact</Link></span>
-                  <span style={{margin: 6}}><Link to="/">Privacy</Link></span>
-                  <span style={{margin: 6}}><Link to="/">Terms</Link></span>
+                  <span style={{margin: 6}}><Link to="/about">About</Link></span>
+                  <span style={{margin: 6}}><Link to="/contact">Contact</Link></span>
+                  <span style={{margin: 6}}><Link to="/privacy">Privacy</Link></span>
+                  <span style={{margin: 6}}><Link to="/terms">Terms</Link></span>
                   <span style={{margin: 6}}><Link to="/">Dashboard</Link></span>
                 </div>
               </div>

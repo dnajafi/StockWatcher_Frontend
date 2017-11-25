@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Stocks from './Stocks';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -9,7 +8,12 @@ class Dashboard extends Component {
 		return (
 			<div>
 				<Header />        
-        <Stocks />
+        <div>
+        	<p>
+	        	Contact
+						Look me up on LinkedIn - Blaise Najafi
+				</p>
+        </div>
 				<Footer />
 			</div>
 		);

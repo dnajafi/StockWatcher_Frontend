@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
-import Stocks from './Stocks';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-class Dashboard extends Component {
+class Privacy extends Component {
 
 	render() {
 		return (
 			<div>
 				<Header />        
-        <Stocks />
+        <div>
+        	<p>
+	        	Privacy - No policy
+					</p>
+        </div>
 				<Footer />
 			</div>
 		);
@@ -17,4 +20,4 @@ class Dashboard extends Component {
 	}
 }
 
-export default Dashboard;
+export default Privacy;
